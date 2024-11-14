@@ -7,6 +7,7 @@
 #include "key.h"
 #include "adc.h"
 #include "math.h"
+#include "string.h"
 
 
 unsigned int func_flag = 0; // 0->单次存储、连续显示  1->实时存储、实时显示
@@ -22,7 +23,7 @@ void Reset_Sources_Init()
 void Timer_Init()
 {
     CKCON     = 0x20; // 定时器 2 使用系统时钟，定时器 1 使用系统时钟的 12 分频
-    TMR3CN    = 0x06; // 定时器 3 允许， 使用系统时钟
+    TMR3CN    = 0x06; // 定时器 3 允许，使用系统时钟
     TMR3RLL   = 0xA0;
     TMR3RLH   = 0xFF;
 }
@@ -121,39 +122,10 @@ main()
  	 unsigned char key=0,x=0,y=0;
 	 unsigned int i=0,j=0;
 	 Init_Device();
-     for(i=0;i<1000;i++)
-	 adcmem[i]=0; // 清空ADC数组
+     memset(adcmem, 0, sizeof(adcmem));
 	 newLCDInit();
 	 Clear();
-	 /*
-	 LCDWrite(W_CMD,0xA7);	  //反显命令  
-     DrawcharS("Welcome",1,4);
-     DrawcharS("to PHY!",2,4);*/
-     /*    
-	 for(i=0;i<255;i++)
-	 	{
-			Delayms(100);
-		}
-		*/
-//	 Clear();
 	 LCDWrite(W_CMD,0xA6);	  //正常显命令           
-//     DrawcharS("Welcome",1,4);
-//     DrawcharS("to PHY!",2,4);
-         
-	 /*
-	 for(i=0;i<255;i++)
-	 	{
-			Delayms(100);
-		}
-	 Clear();			  //清屏
-	for(i=0;i<128;i++)
-		DrawPoint(i,(sintab[i%100])>>6);
-	 for(i=0;i<255;i++)
-	 	{
-			Delayms(10);
-		}
-	 Clear();			  //清屏
-	 */
 	 while(1)
 	 {
 	   j++;	        
@@ -224,5 +196,5 @@ main()
 
 	    }
 		*/
-	}
+	 }
 }

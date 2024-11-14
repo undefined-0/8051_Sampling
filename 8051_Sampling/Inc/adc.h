@@ -1,5 +1,3 @@
-extern code unsigned  int sintab[100];
-//sfr16 ADC0     = 0xbe;                 // ADC0 data
-
-extern int xdata adcmem[1500];
-extern int k;
+#define SAMPLES_NUM 1500
+extern code unsigned int sintab[100];
+extern int xdata adcmem[SAMPLES_NUM];
