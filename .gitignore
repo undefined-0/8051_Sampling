@@ -29,4 +29,5 @@ JLinkLog.txt
 *.dbgconf
 
 *.vscode
-蓝桥杯2024省赛资料/
+*.uvopt
+*.M51
