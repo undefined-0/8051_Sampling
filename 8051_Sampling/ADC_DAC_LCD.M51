@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    11/14/2024  17:30:18  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    11/15/2024  10:09:10  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
@@ -55,32 +55,32 @@ LINK MAP OF MODULE:  ADC_DAC_LCD (KEY)
             CODE    066EH     0315H     UNIT         ?PR?_DRAWCHAR?LCD
             CODE    0983H     00F3H     UNIT         ?C?LIB_CODE
             CODE    0A76H     00E7H     UNIT         ?PR?KEYSCAN?KEY
-            CODE    0B5DH     00CFH     UNIT         ?PR?ADC0_ISR?ADC
-            CODE    0C2CH     00C8H     UNIT         ?CO?ADC
-            CODE    0CF4H     00A9H     UNIT         ?PR?MAIN?MAIN
-            CODE    0D9DH     009FH     UNIT         ?PR?_DRAWCHARS?LCD
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 2
+            CODE    0B5DH     00CBH     UNIT         ?PR?ADC0_ISR?ADC
+            CODE    0C28H     00C8H     UNIT         ?CO?ADC
+            CODE    0CF0H     00A9H     UNIT         ?PR?MAIN?MAIN
+            CODE    0D99H     009FH     UNIT         ?PR?_DRAWCHARS?LCD
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 2
 
 
-            CODE    0E3CH     008CH     UNIT         ?C_C51STARTUP
-            CODE    0EC8H     0073H     UNIT         ?PR?NEWLCDINIT?LCD
-            CODE    0F3BH     0029H     UNIT         ?PR?_DELAYMS?LCD
-            CODE    0F64H     0027H     UNIT         ?PR?_WRATEC?LCD
-            CODE    0F8BH     0027H     UNIT         ?PR?_WRATED?LCD
-            CODE    0FB2H     0027H     UNIT         ?PR?CLEAR?LCD
-            CODE    0FD9H     0020H     UNIT         ?PR?_LCD_SETXY?LCD
-            CODE    0FF9H     001AH     UNIT         ?PR?OSCILLATOR_INIT?MAIN
-            CODE    1013H     0018H     UNIT         ?PR?INIT_DEVICE?MAIN
-            CODE    102BH     000EH     UNIT         ?PR?_LCDWRITE?LCD
-            CODE    1039H     000DH     UNIT         ?PR?TIMER_INIT?MAIN
-            CODE    1046H     000CH     UNIT         ?PR?_ABS?ABS
-            CODE    1052H     000AH     UNIT         ?PR?_LCD_DRAW_POINT?LCD
-            CODE    105CH     000AH     UNIT         ?PR?RESET_SOURCES_INIT?MAIN
-            CODE    1066H     0007H     UNIT         ?PR?DAC_INIT?MAIN
-            CODE    106DH     0007H     UNIT         ?PR?PORT_IO_INIT?MAIN
-            CODE    1074H     0007H     UNIT         ?PR?INTERRUPTS_INIT?MAIN
-            CODE    107BH     0004H     UNIT         ?PR?VOLTAGE_REFERENCE_INIT?MAIN
-            CODE    107FH     0004H     UNIT         ?PR?TIMER3_ISR?ADC
+            CODE    0E38H     008CH     UNIT         ?C_C51STARTUP
+            CODE    0EC4H     0073H     UNIT         ?PR?NEWLCDINIT?LCD
+            CODE    0F37H     0029H     UNIT         ?PR?_DELAYMS?LCD
+            CODE    0F60H     0027H     UNIT         ?PR?_WRATEC?LCD
+            CODE    0F87H     0027H     UNIT         ?PR?_WRATED?LCD
+            CODE    0FAEH     0027H     UNIT         ?PR?CLEAR?LCD
+            CODE    0FD5H     0020H     UNIT         ?PR?_LCD_SETXY?LCD
+            CODE    0FF5H     001AH     UNIT         ?PR?OSCILLATOR_INIT?MAIN
+            CODE    100FH     0018H     UNIT         ?PR?INIT_DEVICE?MAIN
+            CODE    1027H     000EH     UNIT         ?PR?_LCDWRITE?LCD
+            CODE    1035H     000DH     UNIT         ?PR?TIMER_INIT?MAIN
+            CODE    1042H     000CH     UNIT         ?PR?_ABS?ABS
+            CODE    104EH     000AH     UNIT         ?PR?_LCD_DRAW_POINT?LCD
+            CODE    1058H     000AH     UNIT         ?PR?RESET_SOURCES_INIT?MAIN
+            CODE    1062H     0007H     UNIT         ?PR?DAC_INIT?MAIN
+            CODE    1069H     0007H     UNIT         ?PR?PORT_IO_INIT?MAIN
+            CODE    1070H     0007H     UNIT         ?PR?INTERRUPTS_INIT?MAIN
+            CODE    1077H     0004H     UNIT         ?PR?VOLTAGE_REFERENCE_INIT?MAIN
+            CODE    107BH     0004H     UNIT         ?PR?TIMER3_ISR?ADC
 
 
 
@@ -119,7 +119,7 @@ SEGMENT                                   DATA_GROUP
 ?PR?_DELAYMS?LCD                        -----    -----
   +--> ?PR?_LCDWRITE?LCD
 
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 3
 
 
 ?PR?_LCDWRITE?LCD                       -----    -----
@@ -179,7 +179,7 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   C:0ADAH         LINE#         38
   C:0AEAH         LINE#         39
   C:0AEAH         LINE#         40
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 4
 
 
   C:0AEAH         LINE#         41
@@ -231,7 +231,7 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   C:007EH         PUBLIC        AsciiFontData
   D:00B0H         PUBLIC        P3
   D:0084H         PUBLIC        P4
-  C:0D9DH         PUBLIC        _DrawcharS
+  C:0D99H         PUBLIC        _DrawcharS
   D:00E8H         PUBLIC        ADC0CN
   D:00A8H         PUBLIC        IE
   D:00D8H         PUBLIC        PCA0CN
@@ -239,40 +239,40 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   C:0003H         PUBLIC        _DrawPoint
   D:00C0H         PUBLIC        SMB0CN
   D:00F8H         PUBLIC        SPI0CN
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 5
 
 
   C:066EH         PUBLIC        _Drawchar
-  C:0FD9H         PUBLIC        _LCD_setXY
+  C:0FD5H         PUBLIC        _LCD_setXY
   D:0088H         PUBLIC        TCON
-  C:0EC8H         PUBLIC        newLCDInit
-  C:0F64H         PUBLIC        _WrateC
-  C:0F8BH         PUBLIC        _WrateD
-  C:0F44H         PUBLIC        _Delayms
+  C:0EC4H         PUBLIC        newLCDInit
+  C:0F60H         PUBLIC        _WrateC
+  C:0F87H         PUBLIC        _WrateD
+  C:0F40H         PUBLIC        _Delayms
   B:00B0H.5       PUBLIC        SDA
   B:00B0H.4       PUBLIC        SCK
-  C:102BH         PUBLIC        _LCDWrite
+  C:1027H         PUBLIC        _LCDWrite
   D:0098H         PUBLIC        SCON0
   D:00C8H         PUBLIC        T2CON
-  C:0FB2H         PUBLIC        Clear
-  C:1052H         PUBLIC        _LCD_draw_point
+  C:0FAEH         PUBLIC        Clear
+  C:104EH         PUBLIC        _LCD_draw_point
   D:00D0H         PUBLIC        PSW
-  C:0F3BH         SYMBOL        L?0084
-  C:0F40H         SYMBOL        L?0085
+  C:0F37H         SYMBOL        L?0084
+  C:0F3CH         SYMBOL        L?0085
   -------         PROC          L?0083
   -------         ENDPROC       L?0083
-  C:0F3BH         SYMBOL        L?0084
-  C:0F40H         SYMBOL        L?0085
+  C:0F37H         SYMBOL        L?0084
+  C:0F3CH         SYMBOL        L?0085
   -------         PROC          _DELAYMS
   D:0006H         SYMBOL        time
   -------         DO            
   D:0004H         SYMBOL        i
   -------         ENDDO         
-  C:0F44H         LINE#         493
-  C:0F44H         LINE#         494
-  C:0F44H         LINE#         496
-  C:0F4EH         LINE#         497
-  C:0F63H         LINE#         498
+  C:0F40H         LINE#         493
+  C:0F40H         LINE#         494
+  C:0F40H         LINE#         496
+  C:0F4AH         LINE#         497
+  C:0F5FH         LINE#         498
   -------         ENDPROC       _DELAYMS
   -------         PROC          _WRATEC
   D:0007H         SYMBOL        com
@@ -281,25 +281,25 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   D:0006H         SYMBOL        j
   D:0004H         SYMBOL        k
   -------         ENDDO         
-  C:0F64H         LINE#         500
-  C:0F64H         LINE#         502
-  C:0F64H         LINE#         504
-  C:0F67H         LINE#         505
-  C:0F69H         LINE#         506
-  C:0F69H         LINE#         507
-  C:0F6BH         LINE#         508
-  C:0F6FH         LINE#         509
-  C:0F71H         LINE#         510
-  C:0F77H         LINE#         511
-  C:0F79H         LINE#         512
-  C:0F7FH         LINE#         513
-  C:0F83H         LINE#         514
-  C:0F87H         LINE#         515
-  C:0F8AH         LINE#         516
+  C:0F60H         LINE#         500
+  C:0F60H         LINE#         502
+  C:0F60H         LINE#         504
+  C:0F63H         LINE#         505
+  C:0F65H         LINE#         506
+  C:0F65H         LINE#         507
+  C:0F67H         LINE#         508
+  C:0F6BH         LINE#         509
+  C:0F6DH         LINE#         510
+  C:0F73H         LINE#         511
+  C:0F75H         LINE#         512
+  C:0F7BH         LINE#         513
+  C:0F7FH         LINE#         514
+  C:0F83H         LINE#         515
+  C:0F86H         LINE#         516
   -------         ENDPROC       _WRATEC
   -------         PROC          _WRATED
   D:0007H         SYMBOL        dat
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 6
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 6
 
 
   -------         DO            
@@ -307,67 +307,67 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   D:0006H         SYMBOL        j
   D:0004H         SYMBOL        k
   -------         ENDDO         
-  C:0F8BH         LINE#         518
-  C:0F8BH         LINE#         520
-  C:0F8BH         LINE#         522
-  C:0F8EH         LINE#         523
-  C:0F90H         LINE#         524
-  C:0F90H         LINE#         525
-  C:0F92H         LINE#         527
-  C:0F96H         LINE#         528
-  C:0F98H         LINE#         529
-  C:0F9EH         LINE#         530
-  C:0FA0H         LINE#         531
-  C:0FA6H         LINE#         532
-  C:0FAAH         LINE#         533
-  C:0FAEH         LINE#         534
-  C:0FB1H         LINE#         535
+  C:0F87H         LINE#         518
+  C:0F87H         LINE#         520
+  C:0F87H         LINE#         522
+  C:0F8AH         LINE#         523
+  C:0F8CH         LINE#         524
+  C:0F8CH         LINE#         525
+  C:0F8EH         LINE#         527
+  C:0F92H         LINE#         528
+  C:0F94H         LINE#         529
+  C:0F9AH         LINE#         530
+  C:0F9CH         LINE#         531
+  C:0FA2H         LINE#         532
+  C:0FA6H         LINE#         533
+  C:0FAAH         LINE#         534
+  C:0FADH         LINE#         535
   -------         ENDPROC       _WRATED
   -------         PROC          _LCDWRITE
   D:0007H         SYMBOL        type
   D:0006H         SYMBOL        dat
-  C:102BH         LINE#         537
-  C:102DH         LINE#         539
-  C:102DH         LINE#         541
-  C:1032H         LINE#         542
-  C:1032H         LINE#         543
-  C:1035H         LINE#         544
-  C:1035H         LINE#         546
-  C:1035H         LINE#         547
-  C:1038H         LINE#         548
-  C:1038H         LINE#         549
+  C:1027H         LINE#         537
+  C:1029H         LINE#         539
+  C:1029H         LINE#         541
+  C:102EH         LINE#         542
+  C:102EH         LINE#         543
+  C:1031H         LINE#         544
+  C:1031H         LINE#         546
+  C:1031H         LINE#         547
+  C:1034H         LINE#         548
+  C:1034H         LINE#         549
   -------         ENDPROC       _LCDWRITE
   -------         PROC          NEWLCDINIT
-  C:0EC8H         LINE#         551
-  C:0EC8H         LINE#         552
-  C:0EC8H         LINE#         555
-  C:0ECBH         LINE#         556
-  C:0ECEH         LINE#         557
-  C:0ED1H         LINE#         558
-  C:0ED4H         LINE#         559
-  C:0ED7H         LINE#         560
-  C:0EDAH         LINE#         561
-  C:0EE1H         LINE#         562
-  C:0EE8H         LINE#         563
-  C:0EEFH         LINE#         564
-  C:0EF6H         LINE#         565
-  C:0EFDH         LINE#         566
-  C:0F04H         LINE#         570
-  C:0F06H         LINE#         571
-  C:0F09H         LINE#         572
-  C:0F0BH         LINE#         573
-  C:0F0EH         LINE#         574
-  C:0F10H         LINE#         575
-  C:0F13H         LINE#         578
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 7
+  C:0EC4H         LINE#         551
+  C:0EC4H         LINE#         552
+  C:0EC4H         LINE#         555
+  C:0EC7H         LINE#         556
+  C:0ECAH         LINE#         557
+  C:0ECDH         LINE#         558
+  C:0ED0H         LINE#         559
+  C:0ED3H         LINE#         560
+  C:0ED6H         LINE#         561
+  C:0EDDH         LINE#         562
+  C:0EE4H         LINE#         563
+  C:0EEBH         LINE#         564
+  C:0EF2H         LINE#         565
+  C:0EF9H         LINE#         566
+  C:0F00H         LINE#         570
+  C:0F02H         LINE#         571
+  C:0F05H         LINE#         572
+  C:0F07H         LINE#         573
+  C:0F0AH         LINE#         574
+  C:0F0CH         LINE#         575
+  C:0F0FH         LINE#         578
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 7
 
 
-  C:0F1AH         LINE#         579
-  C:0F1CH         LINE#         580
-  C:0F1FH         LINE#         581
-  C:0F26H         LINE#         582
-  C:0F2DH         LINE#         583
-  C:0F34H         LINE#         584
+  C:0F16H         LINE#         579
+  C:0F18H         LINE#         580
+  C:0F1BH         LINE#         581
+  C:0F22H         LINE#         582
+  C:0F29H         LINE#         583
+  C:0F30H         LINE#         584
   -------         ENDPROC       NEWLCDINIT
   -------         PROC          _LCD_SETXY
   D:0003H         SYMBOL        X
@@ -376,41 +376,41 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   D:0006H         SYMBOL        gao
   D:0003H         SYMBOL        di
   -------         ENDDO         
-  C:0FD9H         LINE#         593
-  C:0FDBH         LINE#         594
-  C:0FDBH         LINE#         596
-  C:0FE2H         LINE#         597
-  C:0FE5H         LINE#         598
-  C:0FE9H         LINE#         599
-  C:0FEDH         LINE#         600
-  C:0FF4H         LINE#         601
+  C:0FD5H         LINE#         593
+  C:0FD7H         LINE#         594
+  C:0FD7H         LINE#         596
+  C:0FDEH         LINE#         597
+  C:0FE1H         LINE#         598
+  C:0FE5H         LINE#         599
+  C:0FE9H         LINE#         600
+  C:0FF0H         LINE#         601
   -------         ENDPROC       _LCD_SETXY
   -------         PROC          _LCD_DRAW_POINT
   D:0007H         SYMBOL        x
   D:0005H         SYMBOL        y
-  C:1052H         LINE#         606
-  C:1052H         LINE#         607
-  C:1052H         LINE#         608
-  C:1055H         LINE#         609
+  C:104EH         LINE#         606
+  C:104EH         LINE#         607
+  C:104EH         LINE#         608
+  C:1051H         LINE#         609
   -------         ENDPROC       _LCD_DRAW_POINT
   -------         PROC          CLEAR
   -------         DO            
   D:0003H         SYMBOL        page
   D:0002H         SYMBOL        j
   -------         ENDDO         
-  C:0FB2H         LINE#         612
-  C:0FB2H         LINE#         613
-  C:0FB2H         LINE#         615
-  C:0FB4H         LINE#         616
-  C:0FB4H         LINE#         617
-  C:0FBBH         LINE#         618
-  C:0FC2H         LINE#         619
-  C:0FC9H         LINE#         620
-  C:0FCBH         LINE#         621
-  C:0FCBH         LINE#         622
-  C:0FD0H         LINE#         623
-  C:0FD4H         LINE#         624
-  C:0FD8H         LINE#         625
+  C:0FAEH         LINE#         612
+  C:0FAEH         LINE#         613
+  C:0FAEH         LINE#         615
+  C:0FB0H         LINE#         616
+  C:0FB0H         LINE#         617
+  C:0FB7H         LINE#         618
+  C:0FBEH         LINE#         619
+  C:0FC5H         LINE#         620
+  C:0FC7H         LINE#         621
+  C:0FC7H         LINE#         622
+  C:0FCCH         LINE#         623
+  C:0FD0H         LINE#         624
+  C:0FD4H         LINE#         625
   -------         ENDPROC       CLEAR
   -------         PROC          _DRAWPOINT
   D:001BH         SYMBOL        x
@@ -419,7 +419,7 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   D:001CH         SYMBOL        senddat
   D:001DH         SYMBOL        yy
   D:0028H         SYMBOL        DataOld
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 8
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 8
 
 
   D:0029H         SYMBOL        yOld
@@ -479,7 +479,7 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   C:07F2H         LINE#         721
   C:07FBH         LINE#         722
   C:07FEH         LINE#         724
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 9
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 9
 
 
   C:07FEH         LINE#         725
@@ -513,33 +513,33 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   D:0012H         SYMBOL        L
   D:0013H         SYMBOL        TOTAL
   -------         ENDDO         
-  C:0D9DH         LINE#         759
-  C:0DA3H         LINE#         760
-  C:0DA3H         LINE#         761
-  C:0DACH         LINE#         763
-  C:0DB4H         LINE#         764
-  C:0DC4H         LINE#         765
-  C:0DC6H         LINE#         767
-  C:0DCCH         LINE#         768
-  C:0DCCH         LINE#         769
-  C:0DD7H         LINE#         770
-  C:0DD7H         LINE#         771
-  C:0DEEH         LINE#         772
-  C:0DFBH         LINE#         773
-  C:0E0AH         LINE#         774
-  C:0E15H         LINE#         775
-  C:0E1DH         LINE#         776
-  C:0E31H         LINE#         777
-  C:0E31H         LINE#         778
-  C:0E31H         LINE#         779
-  C:0E31H         LINE#         780
-  C:0E33H         LINE#         782
-  C:0E33H         LINE#         783
-  C:0E39H         LINE#         784
-  C:0E39H         LINE#         785
-  C:0E3BH         LINE#         787
+  C:0D99H         LINE#         759
+  C:0D9FH         LINE#         760
+  C:0D9FH         LINE#         761
+  C:0DA8H         LINE#         763
+  C:0DB0H         LINE#         764
+  C:0DC0H         LINE#         765
+  C:0DC2H         LINE#         767
+  C:0DC8H         LINE#         768
+  C:0DC8H         LINE#         769
+  C:0DD3H         LINE#         770
+  C:0DD3H         LINE#         771
+  C:0DEAH         LINE#         772
+  C:0DF7H         LINE#         773
+  C:0E06H         LINE#         774
+  C:0E11H         LINE#         775
+  C:0E19H         LINE#         776
+  C:0E2DH         LINE#         777
+  C:0E2DH         LINE#         778
+  C:0E2DH         LINE#         779
+  C:0E2DH         LINE#         780
+  C:0E2FH         LINE#         782
+  C:0E2FH         LINE#         783
+  C:0E35H         LINE#         784
+  C:0E35H         LINE#         785
+  C:0E37H         LINE#         787
   -------         ENDPROC       _DRAWCHARS
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 10
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 10
 
 
   -------         ENDMOD        LCD
@@ -555,51 +555,51 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   D:00A7H         PUBLIC        P3MDOUT
   D:0093H         PUBLIC        TMR3RLH
   D:0092H         PUBLIC        TMR3RLL
-  C:106DH         PUBLIC        Port_IO_Init
+  C:1069H         PUBLIC        Port_IO_Init
   D:00D8H         PUBLIC        PCA0CN
   D:00B8H         PUBLIC        IP
-  C:0FF9H         PUBLIC        Oscillator_Init
+  C:0FF5H         PUBLIC        Oscillator_Init
   D:00E3H         PUBLIC        XBR2
   D:00D1H         PUBLIC        REF0CN
   D:00C0H         PUBLIC        SMB0CN
-  C:0CF4H         PUBLIC        main
+  C:0CF0H         PUBLIC        main
   D:002BH         PUBLIC        func_flag
   D:00F8H         PUBLIC        SPI0CN
   D:0088H         PUBLIC        TCON
   D:0091H         PUBLIC        TMR3CN
-  C:1074H         PUBLIC        Interrupts_Init
-  C:1066H         PUBLIC        DAC_Init
+  C:1070H         PUBLIC        Interrupts_Init
+  C:1062H         PUBLIC        DAC_Init
   C:0076H         PUBLIC        ADC_Init
   D:00B2H         PUBLIC        OSCICN
-  C:107BH         PUBLIC        Voltage_Reference_Init
-  C:105CH         PUBLIC        Reset_Sources_Init
-  C:1013H         PUBLIC        Init_Device
+  C:1077H         PUBLIC        Voltage_Reference_Init
+  C:1058H         PUBLIC        Reset_Sources_Init
+  C:100FH         PUBLIC        Init_Device
   D:00B1H         PUBLIC        OSCXCN
   D:00EFH         PUBLIC        RSTSRC
   D:0098H         PUBLIC        SCON0
   D:00C8H         PUBLIC        T2CON
   D:008EH         PUBLIC        CKCON
-  C:1039H         PUBLIC        Timer_Init
+  C:1035H         PUBLIC        Timer_Init
   D:00D0H         PUBLIC        PSW
   -------         PROC          RESET_SOURCES_INIT
-  C:105CH         LINE#         16
-  C:105CH         LINE#         17
-  C:105CH         LINE#         18
-  C:105FH         LINE#         19
-  C:1062H         LINE#         20
-  C:1065H         LINE#         21
+  C:1058H         LINE#         16
+  C:1058H         LINE#         17
+  C:1058H         LINE#         18
+  C:105BH         LINE#         19
+  C:105EH         LINE#         20
+  C:1061H         LINE#         21
   -------         ENDPROC       RESET_SOURCES_INIT
   -------         PROC          TIMER_INIT
-  C:1039H         LINE#         23
-  C:1039H         LINE#         24
-  C:1039H         LINE#         25
-  C:103CH         LINE#         26
-  C:103FH         LINE#         27
-  C:1042H         LINE#         28
-  C:1045H         LINE#         29
+  C:1035H         LINE#         23
+  C:1035H         LINE#         24
+  C:1035H         LINE#         25
+  C:1038H         LINE#         26
+  C:103BH         LINE#         27
+  C:103EH         LINE#         28
+  C:1041H         LINE#         29
   -------         ENDPROC       TIMER_INIT
   -------         PROC          ADC_INIT
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 11
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 11
 
 
   C:0076H         LINE#         31
@@ -608,58 +608,58 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   C:0079H         LINE#         34
   -------         ENDPROC       ADC_INIT
   -------         PROC          DAC_INIT
-  C:1066H         LINE#         36
-  C:1066H         LINE#         37
-  C:1066H         LINE#         38
-  C:1069H         LINE#         39
-  C:106CH         LINE#         40
+  C:1062H         LINE#         36
+  C:1062H         LINE#         37
+  C:1062H         LINE#         38
+  C:1065H         LINE#         39
+  C:1068H         LINE#         40
   -------         ENDPROC       DAC_INIT
   -------         PROC          VOLTAGE_REFERENCE_INIT
-  C:107BH         LINE#         42
-  C:107BH         LINE#         43
-  C:107BH         LINE#         44
-  C:107EH         LINE#         45
+  C:1077H         LINE#         42
+  C:1077H         LINE#         43
+  C:1077H         LINE#         44
+  C:107AH         LINE#         45
   -------         ENDPROC       VOLTAGE_REFERENCE_INIT
   -------         PROC          PORT_IO_INIT
-  C:106DH         LINE#         47
-  C:106DH         LINE#         48
-  C:106DH         LINE#         85
-  C:1070H         LINE#         86
-  C:1073H         LINE#         87
+  C:1069H         LINE#         47
+  C:1069H         LINE#         48
+  C:1069H         LINE#         85
+  C:106CH         LINE#         86
+  C:106FH         LINE#         87
   -------         ENDPROC       PORT_IO_INIT
   -------         PROC          OSCILLATOR_INIT
   -------         DO            
   D:0006H         SYMBOL        i
   -------         ENDDO         
-  C:0FF9H         LINE#         89
-  C:0FF9H         LINE#         90
-  C:0FF9H         LINE#         91
-  C:0FFCH         LINE#         92
-  C:0FFFH         LINE#         93
-  C:100AH         LINE#         94
-  C:100FH         LINE#         95
-  C:1012H         LINE#         96
+  C:0FF5H         LINE#         89
+  C:0FF5H         LINE#         90
+  C:0FF5H         LINE#         91
+  C:0FF8H         LINE#         92
+  C:0FFBH         LINE#         93
+  C:1006H         LINE#         94
+  C:100BH         LINE#         95
+  C:100EH         LINE#         96
   -------         ENDPROC       OSCILLATOR_INIT
   -------         PROC          INTERRUPTS_INIT
-  C:1074H         LINE#         98
-  C:1074H         LINE#         99
-  C:1074H         LINE#         100
-  C:1077H         LINE#         101
-  C:107AH         LINE#         102
+  C:1070H         LINE#         98
+  C:1070H         LINE#         99
+  C:1070H         LINE#         100
+  C:1073H         LINE#         101
+  C:1076H         LINE#         102
   -------         ENDPROC       INTERRUPTS_INIT
   -------         PROC          INIT_DEVICE
-  C:1013H         LINE#         106
-  C:1013H         LINE#         107
-  C:1013H         LINE#         108
-  C:1016H         LINE#         109
-  C:1019H         LINE#         110
-  C:101CH         LINE#         111
-  C:101FH         LINE#         112
-  C:1022H         LINE#         113
-  C:1025H         LINE#         114
-  C:1028H         LINE#         115
+  C:100FH         LINE#         106
+  C:100FH         LINE#         107
+  C:100FH         LINE#         108
+  C:1012H         LINE#         109
+  C:1015H         LINE#         110
+  C:1018H         LINE#         111
+  C:101BH         LINE#         112
+  C:101EH         LINE#         113
+  C:1021H         LINE#         114
+  C:1024H         LINE#         115
   -------         ENDPROC       INIT_DEVICE
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 12
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 12
 
 
   -------         PROC          MAIN
@@ -670,31 +670,31 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   D:0017H         SYMBOL        i
   D:0019H         SYMBOL        j
   -------         ENDDO         
-  C:0CF4H         LINE#         119
-  C:0CF4H         LINE#         120
-  C:0CF4H         LINE#         122
-  C:0CFBH         LINE#         123
-  C:0D03H         LINE#         124
-  C:0D06H         LINE#         125
-  C:0D15H         LINE#         126
-  C:0D18H         LINE#         127
-  C:0D1BH         LINE#         128
-  C:0D22H         LINE#         129
-  C:0D22H         LINE#         130
-  C:0D22H         LINE#         131
-  C:0D2AH         LINE#         132
-  C:0D3BH         LINE#         133
-  C:0D3BH         LINE#         134
-  C:0D7DH         LINE#         136
-  C:0D82H         LINE#         137
-  C:0D9BH         LINE#         199
+  C:0CF0H         LINE#         119
+  C:0CF0H         LINE#         120
+  C:0CF0H         LINE#         122
+  C:0CF7H         LINE#         123
+  C:0CFFH         LINE#         124
+  C:0D02H         LINE#         125
+  C:0D11H         LINE#         126
+  C:0D14H         LINE#         127
+  C:0D17H         LINE#         128
+  C:0D1EH         LINE#         129
+  C:0D1EH         LINE#         130
+  C:0D1EH         LINE#         131
+  C:0D26H         LINE#         132
+  C:0D37H         LINE#         133
+  C:0D37H         LINE#         134
+  C:0D79H         LINE#         136
+  C:0D7EH         LINE#         137
+  C:0D97H         LINE#         199
   -------         ENDPROC       MAIN
   -------         ENDMOD        MAIN
 
   -------         MODULE        ADC
   C:0000H         SYMBOL        _ICE_DUMMY_
-  C:0C2CH         PUBLIC        sintab
-  C:107FH         PUBLIC        TIMER3_ISR
+  C:0C28H         PUBLIC        sintab
+  C:107BH         PUBLIC        TIMER3_ISR
   D:00E8H         PUBLIC        ADC0CN
   D:00A8H         PUBLIC        IE
   D:00D8H         PUBLIC        PCA0CN
@@ -717,12 +717,12 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   D:00BEH         PUBLIC        ADC0
   D:00D0H         PUBLIC        PSW
   -------         PROC          TIMER3_ISR
-  C:107FH         LINE#         19
-  C:107FH         LINE#         21
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 13
+  C:107BH         LINE#         19
+  C:107BH         LINE#         21
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 13
 
 
-  C:1082H         LINE#         22
+  C:107EH         LINE#         22
   -------         ENDPROC       TIMER3_ISR
   -------         PROC          ADC0_ISR
   C:0B5DH         LINE#         23
@@ -733,20 +733,20 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   C:0B96H         LINE#         31
   C:0B99H         LINE#         32
   C:0B9CH         LINE#         33
-  C:0BB2H         LINE#         34
-  C:0BB4H         LINE#         36
-  C:0BB4H         LINE#         37
-  C:0BBFH         LINE#         38
-  C:0BBFH         LINE#         39
-  C:0BD9H         LINE#         40
-  C:0BE1H         LINE#         41
-  C:0BE3H         LINE#         43
-  C:0BE3H         LINE#         44
-  C:0BF9H         LINE#         45
-  C:0C12H         LINE#         46
-  C:0C17H         LINE#         47
-  C:0C17H         LINE#         48
-  C:0C17H         LINE#         49
+  C:0BB0H         LINE#         34
+  C:0BB2H         LINE#         36
+  C:0BB2H         LINE#         37
+  C:0BBDH         LINE#         38
+  C:0BBDH         LINE#         39
+  C:0BD7H         LINE#         40
+  C:0BDFH         LINE#         41
+  C:0BE1H         LINE#         43
+  C:0BE1H         LINE#         44
+  C:0BF5H         LINE#         45
+  C:0C0EH         LINE#         46
+  C:0C13H         LINE#         47
+  C:0C13H         LINE#         48
+  C:0C13H         LINE#         49
   -------         ENDPROC       ADC0_ISR
   -------         ENDMOD        ADC
 
@@ -771,7 +771,7 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   -------         ENDMOD        ?C?ULCMP
 
   -------         MODULE        ABS
-  C:1046H         PUBLIC        _ABS
+  C:1042H         PUBLIC        _ABS
   -------         ENDMOD        ABS
 
   -------         MODULE        ?C?MEMSET
@@ -779,7 +779,7 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
   -------         ENDMOD        ?C?MEMSET
 
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/14/2024  17:30:18  PAGE 14
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  11/15/2024  10:09:10  PAGE 14
 
 
     SEGMENT: ?PR?_LCD_DRAW_POINT?LCD
@@ -790,5 +790,5 @@ SYMBOL TABLE OF MODULE:  ADC_DAC_LCD (KEY)
 *** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
     SEGMENT: ?CO?ADC
 
-Program Size: data=46.0 xdata=3000 code=4226
+Program Size: data=46.0 xdata=3000 code=4222
 LINK/LOCATE RUN COMPLETE.  3 WARNING(S),  0 ERROR(S)

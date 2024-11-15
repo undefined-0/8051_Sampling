@@ -10,7 +10,7 @@
 #include "string.h"
 
 
-unsigned int func_flag = 0; // 0->单次存储、连续显示  1->实时存储、实时显示
+unsigned int func_flag = 1; // 0->单次存储、连续显示  1->实时存储、实时显示（上电默认）
 // Peripheral specific initialization functions,
 // Called from the Init_Device() function
 void Reset_Sources_Init()
@@ -122,7 +122,7 @@ main()
  	 unsigned char key=0,x=0,y=0;
 	 unsigned int i=0,j=0;
 	 Init_Device();
-     memset(adcmem, 0, sizeof(adcmem));
+     memset(adcmem, 0, sizeof(adcmem)); // 清空数组
 	 newLCDInit();
 	 Clear();
 	 LCDWrite(W_CMD,0xA6);	  //正常显命令           

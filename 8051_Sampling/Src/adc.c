@@ -30,7 +30,7 @@ void ADC0_ISR(void) interrupt 15 // ADC0
       adcmem[k] = ADC0; // 存储转换结果
       DAC0L = ADC0L; // 直接将ADC低字节输出到DAC
       DAC0H = ADC0H; // 直接将ADC高字节输出到DAC
-      k = (++k) % SAMPLES_NUM; // 更新索引并循环（注意要先自增再取余！否则k将一直不变）
+      k = (k + 1) % SAMPLES_NUM; // 更新索引并循环（注：这里不能用k++替代k+1）
    }
    else // 单次存储、连续显示
    {
@@ -41,7 +41,7 @@ void ADC0_ISR(void) interrupt 15 // ADC0
       }
       else // 已采到1500个点，开始循环显示
       {
-         display_index = (++display_index) % SAMPLES_NUM; // 更新显示索引并循环
+         display_index = (display_index + 1) % SAMPLES_NUM; // 更新显示索引并循环
          DAC0L = adcmem[display_index] & 0xFF; // 输出存储数据的低字节到DAC
          DAC0H = (adcmem[display_index] >> 8) & 0xFF; // 输出存储数据的高字节到DAC
       }
