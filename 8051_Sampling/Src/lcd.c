@@ -1,10 +1,6 @@
 #include <c8051f020.h>
-//#include <stdio.h>
 #include <math.h>
-//#include <DataType.h>
 #include "lcd.h"
-
-
 
 sbit	SCK= 		    P3^4;
 sbit	SDA=			P3^5;
@@ -489,7 +485,11 @@ const unsigned char code AsciiFontData[95][16]	=
 
 };
 
-
+/** 
+ * @brief 延时函数
+ * @param time 延时的毫秒数
+ * @return 无
+ */
 void Delayms(unsigned int time)
 {
 	int i;
@@ -497,33 +497,44 @@ void Delayms(unsigned int time)
 	for(i=0;i<=20;i++);
 }
 
-void WrateC(unsigned char com)				//发送命令	由LCDWrite等函数调用
-
+/** 
+ * @brief 写数据函数，由LCDWrite等函数调用。与写命令函数基本相同。
+ * @param dat 十六进制数据
+ * @return 无
+ * @note LCD通常使用串行通信，这意味着数据线（SDA）上一次只能传输一个比特。
+ * 		 为了发送一个字节（8位），必须逐位发送，从最高位开始。
+ * 		 另：在串行通信中，必须先将要发送的位放在数据线上，
+ *		 然后通过时钟信号（SCK）的控制来告诉接收方（LCD）何时读取这个位。
+ */
+void WriteCMD(unsigned char cmd) // 写命令函数 由LCDWrite等函数调用
 {
-    unsigned char data i,j,k;
-	    ClrLCDRS;  
-		for(i=0;i<8;i++)
+    unsigned char data i,j,k; // data关键字表示将i,j,k存储在内部RAM中（直接寻址，访问速度最快）
+	    Clr_LCD_RS; // 将RS线拉低，选择写命令
+		for(i=0;i<8;i++) // 每次循环都处理cmd中的一个比特并将其发送到LCD
 	    { 
-			 j=com;	 			 
-			 SDA=com&0x80; 
-			 SCK=0;
-			 for(k = 0;k < 3;k ++);//延时
-	         SCK=1;	
-			 for(k = 0;k < 3;k ++);//延时     
-			 com=j<<1;
+			 j=cmd;	 			 
+			 SDA=cmd&0x80; // 取出cmd的最高位，并将其赋值给SDA线（数据线）
+			 SCK=0; // 将时钟线SCK拉低，准备发送数据
+			 for(k = 0;k < 3;k ++); // 延时
+	         SCK=1;	// 将时钟线SCK拉高（LCD在SCK的这个上升沿读取SDA线上的数据）
+			 for(k = 0;k < 3;k ++); // 延时     
+			 cmd=j<<1; // 将j左移一位，这样在下一次循环中就可以发送下一个比特
 		}
-		SetLCDRS;
+		Set_LCD_RS; // 将RS线拉高，为写数据做准备
 }
 
-void WrateD(unsigned char dat)			  //发送数据	 由LCDWrite等函数调用
-
+/** 
+ * @brief 写数据函数，由LCDWrite等函数调用。与写命令函数基本相同。
+ * @param dat 要发送到LCD的数据，表示当前列 8 个像素的亮暗状态。通过位操作更新当前点的亮暗信息（点亮或熄灭）
+ * @return 无
+ */
+void WriteData(unsigned char dat)
 {
     unsigned char data i,j,k;
-	    SetLCDRS;  
+	    Set_LCD_RS; // 将RS线拉高，选择写数据
 		for(i=0;i<8;i++)
 	    { 
 			 j=dat;
-			 
 			 SDA=dat&0x80;
 			 SCK=0;
 			 for(k = 0;k < 3;k ++);//延时
@@ -531,161 +542,186 @@ void WrateD(unsigned char dat)			  //发送数据	 由LCDWrite等函数调用
 			 for(k = 0;k < 3;k ++);//延时   
 			 dat=j<<1;
 		}
-		ClrLCDRS;
+		Clr_LCD_RS; // 将RS线拉高，为写命令做准备
 }
 
-void LCDWrite(unsigned char type,unsigned char dat)		//	#define		W_CMD		1		#define		W_DAT		0		向LCD传送信息 命令/数据	
-
+/** 
+ * @brief 向LCD发信息（命令/数据）
+ * @param type W_CMD（=1）->发命令；W_DAT（=0）->发数据
+ * @param dat 十六进制命令/数据
+ * @return 无
+ */
+void LCDWrite(unsigned char type,unsigned char dat)		
 { 
 
 	if(type)
 	{
-		WrateC(dat);
+		WriteCMD(dat);
 	}
 	else
 	{
-		WrateD(dat);
+		WriteData(dat);
 	}
 }
 
-void newLCDInit() //LCD初始化函数，引脚部份置于系统初始化部份了，注意串行模式下LCD的时钟数和数据线都要设置为P模式（？）
+/** 
+ * @brief LCD初始化函数
+ * @param type W_CMD（=1）->发命令；W_DAT（=0）->发数据
+ * @param dat 十六进制命令/数据
+ * @return 无
+ * @note 引脚部分的配置置于系统初始化部份了。
+ * @note P3MDOUT |= BIT(4) + BIT(5); //P3.4 P3.5 LCD IO 口设置
+ * @note P74OUT |= BIT0;             //P4.0-P4.4设置为推挽输出
+ * @note 注意串行模式下LCD的时钟线和数据线都要设置为P模式（？）（推挽？）
+ * @note 命令可在手册中查到。
+ */
+void LCDInit()
 {
-// P3MDOUT |= BIT(4) + BIT(5); //P3.4 P3.5 LCD IO 口设置
-// P74OUT |= BIT0;             //P4.0-P4.4设置为推挽输出
-	SetLCDRST;
+	Set_LCD_RST; // 取消复位
 	Delayms(10);
-	ClrLCDRST;
+	Clr_LCD_RST; // 执行复位
 	Delayms(10);
-	SetLCDRST;
+	Set_LCD_RST; // 取消复位
 	Delayms(10);
-	LCDWrite(W_CMD,0xE2);	//软件复位
-	LCDWrite(W_CMD,0xA3);//Bais set		显示偏压
-	LCDWrite(W_CMD,0xA0);//ADC seg镜像选择 0xa0正常，0xA1左右镜像
-	LCDWrite(W_CMD,0xC0);//com output scan direction，com镜像选择 0xc0正常，0xC8上下镜像
-	LCDWrite(W_CMD,0x26);
+	LCDWrite(W_CMD,0xE2); // 软件复位
+	LCDWrite(W_CMD,0xA3); // Bias（偏压比，选择点电压与非选择点电压的比值）设置	（0xA3->1/7，显示效果最好；0xA2->1/9，底色偏深）
+	LCDWrite(W_CMD,0xA1); // SEG镜像选择（0xA0正常，0xA1左右镜像）
+	LCDWrite(W_CMD,0xC0); // COM镜像选择（0xC0正常，0xC8上下镜像）
+	LCDWrite(W_CMD,0x26); // 选择调节电阻比率（Select regulation resistor ratio）（？）
+	// 0x24（后三位100）全白，0x27（后三位111）全黑
 	Delayms(5);
 
-	
+	// 内部电源管理，三条指令间隔时间2ms
+	LCDWrite(W_CMD,0x2C); // 00101100
+	Delayms(10);
+	LCDWrite(W_CMD,0x2E); // 00101110
+	Delayms(10);
+	LCDWrite(W_CMD,0x2F); // 00101111
+	Delayms(10);
 
-	LCDWrite(W_CMD,0x2C);//内部电源管理，
+//	LCDWrite(W_CMD,0x24); // 电压调整寄存器高位 范围：0x21-0x27 
+	LCDWrite(W_CMD,0x81); // 电压模式选择
+	LCDWrite(W_CMD,0x20); // 电压调整寄存器低位 范围：0x00-0x3f（？）
 	Delayms(10);
-	LCDWrite(W_CMD,0x2E);//三条指令间隔时间2ms
-	Delayms(10);
-	LCDWrite(W_CMD,0x2F);
-	Delayms(10);
-
-//	LCDWrite(W_CMD,0x24);//电压调整寄存器高位 范围：0x21-0x27 
-	LCDWrite(W_CMD,0x81);//电压模式选择
-	LCDWrite(W_CMD,0x20);//电压调整寄存器低位 范围：0x00-0x3f
-	Delayms(10);
-	LCDWrite(W_CMD,0xF8);
-	LCDWrite(W_CMD,0x01);
+	LCDWrite(W_CMD,0xF8); // Set Booster（双命令）
+	LCDWrite(W_CMD,0x01); // Set Booster
     Delayms(5);
-	LCDWrite(W_CMD,0xAF);//显示开         
-//	LCDWrite(W_CMD,0x40);//从首行开始显示
+	LCDWrite(W_CMD,0xAF); // 开启显示        
+//	LCDWrite(W_CMD,0x40); // 从首行开始显示
 }
-//
-//---------------------------------------------
-//LCD_set_XY: 设置LCD坐标函数
-//输入参数：X：0－127  Y：0－7
-//编写日期：
-//---------------------------------------------
-void LCD_setXY(unsigned char X, unsigned char Y)	   //设置LCD坐标函数X：0－127  Y：0－7 ,调用方式：LCD_setXY(0,0)   左上角为原点哟！
+
+/** 
+ * @brief 设置LCD坐标函数
+ * @param x 0-127
+ * @param y 0-7
+ * @return 无
+ * @note 以LCD左上角为原点
+ */
+void LCD_setXY(unsigned char X, unsigned char Y)
 {
-	unsigned char gao,di;
-	WrateC(0xB0 | Y); //页
-	gao = X & 0xf0;
+	unsigned char gao,di; // 用于存储计算出的列地址的高位和低位
+	WriteCMD(0xB0 | Y); // 设置页地址
+	gao = X & 0xf0; // 取出列地址的高4位
 	gao = gao >> 4;
-	di = X & 0x0f;
-	WrateC(0x10 | gao);  //set Column address MSB
-    WrateC(0x00 | di);  //set column address LSB
+	di = X & 0x0f; // 取出列地址的低4位
+	WriteCMD(0x10 | gao);  //set column address MSB（最高有效位）
+    WriteCMD(0x00 | di);  //set column address LSB（最低有效位）
 
 }
 
-
-void LCD_draw_point(unsigned char x,unsigned char y)    // 左上角为原点哟！ X：0－127  Y：0－7 位置画点  一次一列八个点哟！ 
+/** 
+ * @brief LCD画点函数
+ * @param x 0-127
+ * @param y 0-7
+ * @return 无
+ * @note 以LCD左上角为原点，在xy位置画点。一次一列八个点。
+ */
+void LCD_draw_point(unsigned char x,unsigned char y) 
 {
 	LCD_setXY(x,y);
 	LCDWrite(W_DAT,0xff) ;
 }
 
-void Clear()								  //清屏
+/** 
+ * @brief LCD清屏函数
+ * @return 无
+ */
+void Clear()
 {
    unsigned char page,j;
-	 for(page=0xB7;page>=0xB0;page--)  
+	 for(page=0xB7;page>=0xB0;page--) // 遍历LCD屏幕的每一页（垂直方向）
     {  
 	LCDWrite(W_CMD,page);
-	LCDWrite(W_CMD,0x10);
-	LCDWrite(W_CMD,0x00);  
-     for(j=0;j<128;j++)  
+	LCDWrite(W_CMD,0x10); // 设置列地址的高四位
+	LCDWrite(W_CMD,0x00); // 设置列地址的低四位
+     for(j=0;j<128;j++) // 遍历每一页中的所有列（水平方向）
         {  
-         WrateD(0x00);  
+         WriteData(0x00); // 清除当前列的像素
         }  
     } 
 }
 
-/*
-void set_page_add(unsigned char page) 		  //换页
-{  
-	LCDWrite(W_CMD,0xB7-page);
-}
-
-void set_column_add(unsigned char column)
+/** 
+ * @brief LCD画单个像素点函数
+ * @param pixel_x 水平方向的像素位置（范围 0-127）
+ * @param pixel_y 垂直方向的像素位置（范围 0-63）
+ * @return 无
+ * @note 在连续操作同一显示字节时，本函数保留原始数据，只画新像素点
+ * @note 以LCD左下角为原点
+ */
+void DrawPoint(unsigned char pixel_x,unsigned char pixel_y)
 {
-        unsigned char column_H,column_L;
-          column_H=(column>>4)|0x10;      //调整数据格式
-          column_L=column&0x0f;           //调整数据格式
-		  LCDWrite(W_CMD,column_H);
-		  LCDWrite(W_CMD,column_L);
+    unsigned char data_new, page_y; 
+    // data_new：要发送的数据
+    // page_y：由 pixel_y 计算出的页地址（0-7），对应屏幕上的垂直段
+
+    static unsigned char data_old = 0, y_old = 0, x_old = 0; 
+    // data_old：上一次写入 LCD 的字节数据
+    // y_old, x_old：上一次绘制点的页地址和列地址
+    // 静态变量作用：静态变量的值在函数调用结束后会保存在静态存储区，不会丢失，下一次函数调用时可以直接使用上一次的值，便于判断是否在连续操作同一个字节。
+
+    page_y = (int)(pixel_y / 8); 
+    // 将 pixel_y 坐标除以 8，计算像素所在的页地址 page_y（每页控制 8 行像素）
+
+    if ((page_y == y_old) && (pixel_x == x_old)) 
+        // 判断是否在连续操作同一个字节：
+        // 条件：页地址 (page_y) 和列地址 (pixel_x) 与上次绘制点一致
+        data_new = data_old | (0x80 >> (pixel_y % 8)); 
+        // 如果当前点和上次点在同一个字节，保留之前的像素数据 (data_old)，
+        // 并通过按位或操作更新当前像素点的位置。
+
+    else 
+        data_new = 0x80 >> (pixel_y % 8); 
+        // 如果不是同一个字节，则直接设置当前字节，仅更新当前像素点。
+
+    LCD_setXY(pixel_x, abs(page_y - 7)); 
+    // 设置显示位置 (pixel_x, abs(page_y - 7))
+    // 由于屏幕页地址（硬件布局）是从上到下排列，而逻辑坐标（用户使用的坐标）是从下到上递增，
+    // 因此需要用 abs(page_y - 7) 转换页地址。
+
+    LCDWrite(W_DAT, data_new); 
+    // 向 LCD 写入 data_new 数据，更新当前字节内容。
+
+    // 更新静态变量，保存当前的绘制状态
+    data_old = data_new; // 保存当前写入的字节数据
+    y_old = page_y; // 保存当前的页地址
+    x_old = pixel_x; // 保存当前的列地址
 }
 
-void s_out_W(unsigned char j)
-{  
-  unsigned char u,k;  
-  for(u=0;u<8;u++)
-       { 
-        SDA=j&0x01;
-		SCK=0;
-		for(k = 0;k < 5;k ++);//延时
-	    SCK=1;	  
-		for(k = 0;k < 5;k ++);//延时
-        j>>=1;
-       }   
-}
-
-void w_dat_W(unsigned char dat)  
-{    
- 	SetLCDRS;    
- 	s_out_W(dat); 
-} 
-*/
-
-void DrawPoint(unsigned char x,unsigned char y)		//连续操作同一显示字节时,保留原始数据，画点！	   LCD左下角为坐标原点 x:0~127 y :0~63
-{
-    unsigned char senddat,yy;
-	static unsigned char DataOld=0,yOld=0,xOld=0;
-	yy=(int)(y/8);
-	if((yy==yOld)&&(x==xOld))
-	   senddat = DataOld | (0x80>>(y%8));
-	else
-	   senddat = 0x80>>(y%8);
-	LCD_setXY(x,abs(yy-7));
-	LCDWrite(W_DAT,senddat);
-	DataOld = senddat;
-	yOld=yy;
-	xOld=x;
-}
-
-
-/*********************************************************************
-*在屏幕上显示一个字符
-*参数：C字符  	row 行:0~3  col 列:0~15
-*********************************************************************/
-void Drawchar(unsigned char C,unsigned char row,unsigned char col)		  //row 行:0~3  col 列:0~15   每个字符占LCD 16*8个点	 左上角原点
+/** 
+ * @brief 在LCD屏幕的指定位置绘制一个16×8像素字符
+ * @param C 要显示的字符（可传入ascii码）
+ * @param row 行（范围 0-3）
+ * @param col 列（范围 0-15）
+ * @return 无
+ * @note 每个字符占LCD屏幕的16*8个点
+ * @note 以LCD左上角为原点
+ */
+void Drawchar(unsigned char C,unsigned char row,unsigned char col)
 {	
     unsigned char b,Row,Col;
     unsigned char k;
-	k=C-0x20;
+	k=C-0x20; // 通过 C-0x20 计算出字符在字库 AsciiFontData 中的索引位置。ASCII中从 0x20 开始存储可显示字符，因此减去 0x20。
 	Row=(63-(16*row));
 	Col=8*col;
 
@@ -756,7 +792,7 @@ void Drawchar(unsigned char C,unsigned char row,unsigned char col)		  //row 行:0
 *在屏幕上显示一串字符
 *参数：C【】字符串  	row 起始行:0~3  low 起始列:0~15
 *********************************************************************/
-void DrawcharS(unsigned char *C,unsigned char row,unsigned char col)		//每行最多16个字符，多于16个换行！共4行		左上角原点
+void DrawcharS(unsigned char *C,unsigned char row,unsigned char col)
 {
   int flag=0,i=0;
   unsigned char R,L,TOTAL;

@@ -1,6 +1,6 @@
 #include "C8051F020.h"
 #include "adc.h"
-extern unsigned int func_flag;
+extern bit mode_flag;
 static unsigned int display_index = 0; // 用于循环显示的索引
 unsigned int k=0; // 计数变量（遍历数组用）
 int xdata adcmem[SAMPLES_NUM];
@@ -25,7 +25,7 @@ void ADC0_ISR(void) interrupt 15 // ADC0
 
    AD0INT = 0; // 将ADC0转换结束中断标志清零
 
-   if(func_flag) // 实时存储、实时显示
+   if(mode_flag) // 实时存储、实时显示
    {
       adcmem[k] = ADC0; // 存储转换结果
       DAC0L = ADC0L; // 直接将ADC低字节输出到DAC

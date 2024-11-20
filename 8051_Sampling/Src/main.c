@@ -10,7 +10,7 @@
 #include "string.h"
 
 
-unsigned int func_flag = 1; // 0->单次存储、连续显示  1->实时存储、实时显示（上电默认）
+bit mode_flag = 1; // 定义位变量func_flag，0->单次存储、连续显示  1->实时存储、实时显示（上电默认）
 // Peripheral specific initialization functions,
 // Called from the Init_Device() function
 void Reset_Sources_Init()
@@ -123,7 +123,7 @@ main()
 	 unsigned int i=0,j=0;
 	 Init_Device();
      memset(adcmem, 0, sizeof(adcmem)); // 清空数组
-	 newLCDInit();
+	 LCDInit();
 	 Clear();
 	 LCDWrite(W_CMD,0xA6);	  //正常显命令           
 	 while(1)
@@ -134,7 +134,7 @@ main()
    	   if(j<128){ DrawPoint(j,(adcmem[(j*20)%1000])>>6);}	   //在屏上显示波形
 
        key = KeyScan();
-	   if(key == 1){Clear();func_flag = !func_flag;} // 按下key1，模式切换
+	   if(key == 1){Clear();mode_flag = ~mode_flag;} // 按下key1，模式切换
 	   	   /*
 		if(key != 0)
 		{
